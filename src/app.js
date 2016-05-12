@@ -10,11 +10,16 @@ import 'styles/pure-min.css';
 import 'styles/layout.css';
 import 'styles/grids-responsive-min.css';
 
+const initialState = {
+  items: [{ id: "0", text: 'Study', completed: false, editing: false }],
+  archive: []
+};
+
 const history = useQueries(createHistory)();
 const drivers = {
   DOM: makeDOMDriver('#app'),
   History: makeHistoryDriver(history),
-  Props: () => Rx.Observable.just(0)
+  Props: () => Rx.Observable.just(initialState)
 };
 
 const rerun = rerunner(run);

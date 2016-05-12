@@ -1,12 +1,7 @@
 import { Observable } from 'rx';
 import Operations from './todos-operations';
 
-const initialState = {
-  items: [{ id: "0", text: 'Study', completed: false, editing: false }],
-  archive: []
-};
-
-const todosModel = (actions) => {
+const todosModel = (actions, props$) => {
   const addOp$ = actions.addTodo$.map(todoText => Operations.Add(todoText));
   const removeOp$ = actions.removeTodo$.map(todoId => Operations.Remove(todoId));
 
@@ -26,7 +21,7 @@ const todosModel = (actions) => {
   );
 
   const state$ = allOperations$
-    .startWith(initialState)
+    .merge(props$.take(1))
     .scan((state, operation) => operation(state));
 
   return state$;

@@ -24,8 +24,8 @@ function todoItem(todo) {
 
 function footer(todos) {
   return div('.archive-actions', [
-    button('.archive', {type: 'button'}, 'Archive completed'),
-    a('.archive-info', {href: '/todos/archive'}, [`${todos.archive.length} archived todos`])
+    // button('.archive', {type: 'button'}, 'Archive completed'),
+    a({ attributes: {href: '/todos/archive'}, className: '.archive-info'}, `${todos.archive.length} archived todos`),
   ]);
 }
 
@@ -33,7 +33,7 @@ const view = (state$) => {
   return state$.map(todos =>
     div([
       input('.todo-input', {type: 'text', placeholder: 'Todo', value: ''}),
-      ul(todos.items.map(todo => todoItem(todo))),
+      ul(todos.archive.map(todo => todoItem(todo))),
       footer(todos)
     ])
   );
