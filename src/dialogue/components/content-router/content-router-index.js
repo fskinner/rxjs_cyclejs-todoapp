@@ -37,7 +37,6 @@ function ContentRouter(sources) {
 
   return {
     DOM: sinks$.flatMapLatest(s => s.Comp.DOM),
-    HTTP: sinks$.flatMapLatest(s => s.Comp.HTTP || []),
     History: sinks$.flatMapLatest(s => s.Comp.link),
     Props: sinks$.flatMapLatest(s => s.Props),
   };

@@ -1,5 +1,5 @@
 import { Observable } from 'rx';
-import Operations from './todo-operations';
+import Operations from './todos-operations';
 
 const initialState = {
   items: [{ id: "0", text: 'Study', completed: false, editing: false }],

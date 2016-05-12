@@ -1,7 +1,6 @@
 import { h, div, h1, h2, button, p } from '@cycle/dom'
 
 const view = (state$) =>
-  // mapping over our merged model to update 'count'
   state$.map(count =>
     div('.homepage', [
       h1('.content-subhead', ['Home Page']),
