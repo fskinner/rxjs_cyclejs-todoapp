@@ -3,9 +3,9 @@ import latestObj from 'rx-combine-latest-obj';
 const model = ({actions}) => {
   return latestObj({
     url: actions.click$
-      .map(event => {
-        event.preventDefault();
-        return event.target.href.replace(location.origin, '');
+      .map(evt => {
+        evt.preventDefault();
+        return evt.target.href.replace(location.origin, '');
       }),
   }).startWith()
 

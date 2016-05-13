@@ -7,22 +7,7 @@ const view = () => {
     nav('.nav', [
       ul('.nav-list', [
         li('.nav-item .link', [
-          a('.pure-button', {href: '/'}, ['Home'])
-        ]),
-        li('.nav-item .link', [
-          a('.pure-button', {href: '/page1'}, ['Page 1'])
-        ]),
-        li('.nav-item .link .testlink', [
-          a('.pure-button', {href: '/page2'}, ['Page 2'])
-        ]),
-        li('.nav-item .link', [
           a('.pure-button', {href: '/todos'}, ['Todos'])
-        ]),
-        li('.nav-item .link', [
-          a('.pure-button', {href: '/random'}, ['Rand'])
-        ]),
-        li('.nav-item .link', [
-          a('.pure-button', {href: '/bmi'}, ['BMI'])
         ]),
       ])
     ])])
