@@ -1,4 +1,4 @@
-import { div, ul, li, input, span, button, a } from '@cycle/dom';
+import { section, header, h1, h2, ul, li, div, input, span, button, a, footer } from '@cycle/dom';
 
 function todoBody(todo) {
   if(todo.editing) {
@@ -22,8 +22,8 @@ function todoItem(todo) {
   ]);
 }
 
-function footer(todos) {
-  return div('.archive-actions', [
+function archiveInfo(todos) {
+  return footer('.archive-actions', [
     button('.archive', {type: 'button'}, 'Archive completed'),
     a('.archive-info', {href: '/todos/archive'}, [`${todos.archive.length} archived todos`])
   ]);
@@ -31,10 +31,16 @@ function footer(todos) {
 
 const view = (state$) => {
   return state$.map(todos =>
-    div([
-      input('.todo-input', {type: 'text', placeholder: 'Todo', value: ''}),
-      ul(todos.items.map(todo => todoItem(todo))),
-      footer(todos)
+    section([
+      header('.content-subhead', [
+        h1('.brand-title', 'Todo App'),
+        h2('.brand-tagline', 'RxJS+CycleJS'),
+      ]),
+      div('.todo-app', [
+        input('.todo-input', {type: 'text', placeholder: 'Todo', value: ''}),
+        ul(todos.items.map(todo => todoItem(todo))),
+      ]),
+      archiveInfo(todos)
     ])
   );
 };
